@@ -38,23 +38,27 @@ const app = {
         listItem
             .querySelector('.musicName')
             .textContent = song.name;
-        // const deleteButton = document.createElement('button');
-        // const buttonText = document.createTextNode('Delete');
-        // deleteButton.type = 'button';
-        // deleteButton.style.display = 'inline-block';
-        // deleteButton.addEventListener('click', (deleteEv) => {
-        //     this.deleteListItem(deleteEv);
-        // });
-        // deleteButton.appendChild(buttonText);
-        // listItem.appendChild(deleteButton);
+
+        const deleteButton = listItem.querySelector('.button.alert');
+        deleteButton.addEventListener('click', (deleteEv) => {
+            this.deleteListItem(deleteEv);
+        });
         return listItem;
     },
 
+    //Delete every instance from the array, and remove from the page
     deleteListItem(ev) {
-        const listItem = ev.target.parentElement;
-        const songIndex = this.songArray.indexOf(listItem.dataset.name);
-        if (songIndex >= 0) {
-            this.songArray.splice(songIndex, 1);
+        const listItem = ev.target.parentElement.parentElement;
+        // const songIndex = this.songArray.indexOf(listItem.dataset.name);
+        // if (songIndex >= 0) {
+        //     this.songArray.splice(songIndex, 1);
+        // }
+        for (let i = 0; i < this.songArray.length; i++) {
+            if (this.songArray[i].name === listItem.dataset.name 
+                && this.songArray[i].id === parseInt(listItem.dataset.id)) {
+                this.songArray.splice(i, 1);
+                break;
+            }
         }
         this.songList.removeChild(listItem);
     },
