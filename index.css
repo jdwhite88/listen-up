@@ -7,10 +7,6 @@ h1 {
     margin: auto;
 }
 
-#musicList {
-    list-style: none;
-}
-
 #musicList > li {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -18,4 +14,12 @@ h1 {
 
 #musicList button {
     float: right;
+}
+
+.actions .button {
+    margin-bottom: 0;
+}
+
+.musicName {
+    margin: 0 0.75rem;
 }

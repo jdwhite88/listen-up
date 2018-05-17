@@ -34,7 +34,7 @@
                     <div class="input-group-button">
                         <button
                             type="submit" 
-                            class="button">
+                            class="button success">
                             Add Music
                         </button>
                     </div>
@@ -45,8 +45,14 @@
         <h2>Music List</h2>
 
         <!-- User will add song titles here  -->
-        <ul id="musicList">
-
+        <ul id="musicList" class="no-bullet">
+            <li class="music grid-x align-middle">
+                <span class="musicName cell auto">Test</span>
+                <span class="actions cell shrink">
+                    <button class="button warning">Favorite</button>
+                    <button class="button alert">Delete</button>
+                </span>
+            </li>
         </ul>
 
         <script src="index.js"></script>
