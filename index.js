@@ -1,5 +1,5 @@
-const addButton = document.querySelector('button.newMusic');
-const form = document.querySelector('form.newMusic');
+const addButton = document.querySelector('#musicForm button');
+const form = document.querySelector('#musicForm');
 const songList = document.querySelector('#musicList');
 const songArray = [];
 
