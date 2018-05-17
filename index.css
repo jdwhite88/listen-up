@@ -7,21 +7,8 @@ h1 {
     margin: auto;
 }
 
-#musicList > li {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-#musicList button {
-    float: right;
-}
-
 header {
     text-align: center;
-}
-
-.actions .button {
-    margin-bottom: 0;
 }
 
 .musicName {
@@ -30,4 +17,17 @@ header {
 
 .template {
     display: none;
+}
+
+.actions .button {
+    margin-bottom: 0;
+}
+
+#musicList > li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+#musicList button {
+    float: right;
 }

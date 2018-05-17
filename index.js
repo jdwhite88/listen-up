@@ -30,38 +30,59 @@ const app = {
             name: form.musicName.value,
         }
         this.songArray.push(song);
-        //const listItem = document.createElement('li');
+
         const listItem = this.template.cloneNode(true);
         listItem.classList.remove('template');
         listItem.dataset.id = song.id;
         listItem.dataset.name = song.name;
+        listItem.dataset.fav = false;
         listItem
             .querySelector('.musicName')
             .textContent = song.name;
 
-        const deleteButton = listItem.querySelector('.button.alert');
+        const deleteButton = listItem.querySelector('.button.delete');
         deleteButton.addEventListener('click', (deleteEv) => {
-            this.deleteListItem(deleteEv);
+            this.modifyListItem(this.deleteListItem, deleteEv);
         });
+        const favButton = listItem.querySelector('.button.favorite');
+        favButton.addEventListener('click', (favEv) => {
+            this.modifyListItem(this.favListItem, favEv);
+        });
+
         return listItem;
     },
 
-    //Delete every instance from the array, and remove from the page
-    deleteListItem(ev) {
-        const listItem = ev.target.parentElement.parentElement;
-        // const songIndex = this.songArray.indexOf(listItem.dataset.name);
-        // if (songIndex >= 0) {
-        //     this.songArray.splice(songIndex, 1);
-        // }
+    //Find index of listItem in songArray
+    indexOfListItem(listItem) {
         for (let i = 0; i < this.songArray.length; i++) {
-            if (this.songArray[i].name === listItem.dataset.name 
+            if (this.songArray[i].name === listItem.dataset.name
                 && this.songArray[i].id === parseInt(listItem.dataset.id)) {
-                this.songArray.splice(i, 1);
-                break;
+                return i;
             }
         }
-        this.songList.removeChild(listItem);
+        return -1;
     },
+
+    // Perform function on list item
+    modifyListItem(itemFunction, ev) {
+        const listItem = ev.target.parentElement.parentElement;
+        const listItemIndex = this.indexOfListItem(listItem);
+        if (listItemIndex != -1) {
+            itemFunction(listItem, listItemIndex);
+        }
+    },
+
+    // Delete the unique list item from the array, and remove from the page
+    deleteListItem(listItem, listItemIndex) {
+        app.songArray.splice(listItemIndex, 1);
+        app.songList.removeChild(listItem);
+    },
+
+    // Toggle favorite property for list item
+    favListItem(listItem) {
+        listItem.fav = !listItem.fav;
+        listItem.style.backgroundColor = (listItem.fav) ? 'lemonchiffon' : 'transparent';
+    },   
 }
 
 app.init({
