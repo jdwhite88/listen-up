@@ -16,10 +16,18 @@ h1 {
     float: right;
 }
 
+header {
+    text-align: center;
+}
+
 .actions .button {
     margin-bottom: 0;
 }
 
 .musicName {
     margin: 0 0.75rem;
+}
+
+.template {
+    display: none;
 }

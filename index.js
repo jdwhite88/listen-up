@@ -4,6 +4,8 @@ const app = {
         this.max = 0;
         this.songArray = [];
         this.songList = document.querySelector(selectors.listSelector);
+        this.template = document.querySelector(selectors.templateSelector);
+
         document
             .querySelector(selectors.formSelector)
             .addEventListener('submit', (ev) => {
@@ -28,19 +30,23 @@ const app = {
             name: form.musicName.value,
         }
         this.songArray.push(song);
-        const listItem = document.createElement('li');
+        //const listItem = document.createElement('li');
+        const listItem = this.template.cloneNode(true);
+        listItem.classList.remove('template');
         listItem.dataset.id = song.id;
         listItem.dataset.name = song.name;
-        listItem.textContent = song.name;
-        const deleteButton = document.createElement('button');
-        const buttonText = document.createTextNode('Delete');
-        deleteButton.type = 'button';
-        deleteButton.style.display = 'inline-block';
-        deleteButton.addEventListener('click', (deleteEv) => {
-            this.deleteListItem(deleteEv);
-        });
-        deleteButton.appendChild(buttonText);
-        listItem.appendChild(deleteButton);
+        listItem
+            .querySelector('.musicName')
+            .textContent = song.name;
+        // const deleteButton = document.createElement('button');
+        // const buttonText = document.createTextNode('Delete');
+        // deleteButton.type = 'button';
+        // deleteButton.style.display = 'inline-block';
+        // deleteButton.addEventListener('click', (deleteEv) => {
+        //     this.deleteListItem(deleteEv);
+        // });
+        // deleteButton.appendChild(buttonText);
+        // listItem.appendChild(deleteButton);
         return listItem;
     },
 
@@ -57,4 +63,5 @@ const app = {
 app.init({
     formSelector: '#musicForm',
     listSelector: '#musicList',
+    templateSelector: '.music.template',
 });
