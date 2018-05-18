@@ -10,8 +10,8 @@ This project is the 3rd-4th+ homework for XTern Bootcamp 2018, Session 1.
  ## TODO
  #### WIP
  * _Add pictures and more design to site_
- * _Add ranking system to modify list position_
  #### Upcoming
+ * _Drag and drop list items to change position_
  * _Query YouTube for most relevant video result_
  * _Seperate artist, song, etc. for input into list_
  * _Create tabs for seperate genres_

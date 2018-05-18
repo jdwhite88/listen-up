@@ -51,11 +51,20 @@ const app = {
             this.modifyListItem(this.favListItem, favEv);
         });
 
+        const upButton = listItem.querySelector('.button.up');
+        upButton.addEventListener('click', (upEv) => {
+            this.modifyListItem(this.moveListItemUp, upEv);
+        });
+        const downButton = listItem.querySelector('.button.down');
+        downButton.addEventListener('click', (downEv) => {
+            this.modifyListItem(this.moveListItemDown, downEv);
+        });
+
 
         return listItem;
     },
 
-    //Find index of listItem in songArray
+    //Find index of listItem in songArray by comparing unique id
     indexOfListItem(listItem) {
         for (let i = 0; i < this.songArray.length; i++) {
             if (this.songArray[i].id === parseInt(listItem.dataset.id)) {
@@ -93,7 +102,35 @@ const app = {
     favListItem(listItem) {
         listItem.fav = !listItem.fav;
         listItem.style.backgroundColor = (listItem.fav) ? 'lemonchiffon' : 'transparent';
-    },   
+    },
+
+    // Swap list item with the one above it (bottom is first element)
+    moveListItemDown(listItem, listItemIndex) {
+        if (listItemIndex > 0) {
+            const list = app.songList.children;
+            const indexBefore = (list.length-1) - listItemIndex;
+            const itemBelow = list[indexBefore];
+            app.songList.insertBefore(itemBelow, listItem);
+
+            const temp = app.songArray[listItemIndex - 1];
+            app.songArray[listItemIndex - 1] = app.songArray[listItemIndex];
+            app.songArray[listItemIndex] = temp;
+        }
+    },
+
+    // Swap list item with the one below it (top is last element)
+    moveListItemUp(listItem, listItemIndex) {
+        if (listItemIndex < app.songArray.length - 1) {
+            const list = app.songList.children;
+            const indexAfter = (list.length-1) - listItemIndex - 2;
+            const itemAbove = app.songList.children[indexAfter];
+            app.songList.insertBefore(listItem, itemAbove);
+            
+            const temp = app.songArray[listItemIndex + 1];
+            app.songArray[listItemIndex + 1] = app.songArray[listItemIndex];
+            app.songArray[listItemIndex] = temp;
+        }
+    },
 }
 
 app.init({
