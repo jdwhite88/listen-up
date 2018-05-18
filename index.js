@@ -40,7 +40,7 @@ const app = {
         const listItemName = listItem.querySelector('.musicName');
         listItemName.textContent = song.name;
         listItemName.addEventListener('input', (renameEv) => {
-            this.modifyListItem(this.renameListItem, renameEv);
+            this.renameListItem(renameEv);
         });
         const deleteButton = listItem.querySelector('.button.delete');
         deleteButton.addEventListener('click', (deleteEv) => {
@@ -65,18 +65,22 @@ const app = {
         return -1;
     },
 
-    // Perform function on list item
+    // Perform function on list item (ev: button < span < li)
     modifyListItem(itemFunction, ev) {
-        const listItem = ev.target.parentElement;
+        const listItem = ev.target.parentElement.parentElement;
         const listItemIndex = this.indexOfListItem(listItem);
         if (listItemIndex != -1) {
             itemFunction(listItem, listItemIndex);
         }
     },
 
-    // Once user edits, rename the listed name of the song
-    renameListItem(listItem, listItemIndex) {
-        app.songArray[listItemIndex].name = listItem.querySelector('.musicName').textContent;
+    // Once user edits, rename the listed name of the song (ev: span < li)
+    renameListItem(ev) {
+        const listItem = ev.target.parentElement;
+        const listItemIndex = this.indexOfListItem(listItem);
+        if (listItemIndex != -1) {
+            app.songArray[listItemIndex].name = listItem.querySelector('.musicName').textContent;
+        }
     },
 
     // Delete the unique list item from the array, and remove from the page
