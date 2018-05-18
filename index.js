@@ -36,10 +36,12 @@ const app = {
         listItem.dataset.id = song.id;
         listItem.dataset.name = song.name;
         listItem.dataset.fav = false;
-        listItem
-            .querySelector('.musicName')
-            .textContent = song.name;
 
+        const listItemName = listItem.querySelector('.musicName');
+        listItemName.textContent = song.name;
+        listItemName.addEventListener('input', (renameEv) => {
+            this.modifyListItem(this.renameListItem, renameEv);
+        });
         const deleteButton = listItem.querySelector('.button.delete');
         deleteButton.addEventListener('click', (deleteEv) => {
             this.modifyListItem(this.deleteListItem, deleteEv);
@@ -49,14 +51,14 @@ const app = {
             this.modifyListItem(this.favListItem, favEv);
         });
 
+
         return listItem;
     },
 
     //Find index of listItem in songArray
     indexOfListItem(listItem) {
         for (let i = 0; i < this.songArray.length; i++) {
-            if (this.songArray[i].name === listItem.dataset.name
-                && this.songArray[i].id === parseInt(listItem.dataset.id)) {
+            if (this.songArray[i].id === parseInt(listItem.dataset.id)) {
                 return i;
             }
         }
@@ -65,11 +67,16 @@ const app = {
 
     // Perform function on list item
     modifyListItem(itemFunction, ev) {
-        const listItem = ev.target.parentElement.parentElement;
+        const listItem = ev.target.parentElement;
         const listItemIndex = this.indexOfListItem(listItem);
         if (listItemIndex != -1) {
             itemFunction(listItem, listItemIndex);
         }
+    },
+
+    // Once user edits, rename the listed name of the song
+    renameListItem(listItem, listItemIndex) {
+        app.songArray[listItemIndex].name = listItem.querySelector('.musicName').textContent;
     },
 
     // Delete the unique list item from the array, and remove from the page

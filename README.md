@@ -11,7 +11,6 @@ This project is the 3rd-4th+ homework for XTern Bootcamp 2018, Session 1.
  #### WIP
  * _Add pictures and more design to site_
  * _Add ranking system to modify list position_
- * _Allow users to edit song names_
  #### Upcoming
  * _Query YouTube for most relevant video result_
  * _Seperate artist, song, etc. for input into list_
