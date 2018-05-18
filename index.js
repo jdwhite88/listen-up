@@ -92,15 +92,19 @@ const app = {
         }
     },
 
-    // Delete the unique list item from the array, and remove from the page
+    // Delete the unique list item from the array if not favorited, 
+    // and remove from the page
     deleteListItem(listItem, listItemIndex) {
-        app.songArray.splice(listItemIndex, 1);
-        app.songList.removeChild(listItem);
+        if (!listItem.fav) {
+            app.songArray.splice(listItemIndex, 1);
+            app.songList.removeChild(listItem);
+        }
     },
 
     // Toggle favorite property for list item
     favListItem(listItem) {
         listItem.fav = !listItem.fav;
+        listItem.querySelector('.button.delete').disabled = (listItem.fav) ? true : false;
         listItem.style.backgroundColor = (listItem.fav) ? 'lemonchiffon' : 'transparent';
     },
 

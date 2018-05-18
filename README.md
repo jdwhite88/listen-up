@@ -9,6 +9,7 @@ This project is the 3rd-4th+ homework for XTern Bootcamp 2018, Session 1.
  
  ## TODO
  #### WIP
+ * _Disable first Up and last Down button when list updates_
  * _Add pictures and more design to site_
  #### Upcoming
  * _Drag and drop list items to change position_
