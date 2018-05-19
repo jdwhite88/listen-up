@@ -8,7 +8,7 @@
 }
 
 main {
-    width: 80%;
+    width: 90%;
     margin: 1rem auto;
     
 }
@@ -32,10 +32,6 @@ header {
     margin: 0.5rem 0.75rem;
 }
 
-.template {
-    display: none;
-}
-
 .actions .button {
     margin-bottom: 0;
 }
@@ -52,17 +48,42 @@ header {
     color: var(--dark-text-color);
 }
 
+#musicList {
+    width: 95%;
+    margin-bottom: 0;
+    margin: auto;
+    justify-content: center;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 30rem;
+}
+
 #musicList > li {
-    color: var(--light-text-color);
+    display: flex;
+    
+    margin: auto;
+    width: 95%;
+    flex-wrap: nowrap;
+    min-width: 30rem;
     padding: 0.03rem;
     box-shadow: 0rem 0rem 0.4rem 0.1rem var(--shadow-color),
                 0rem 0rem 1.3rem 0.1rem var(--shadow-color) inset;
-    margin: 0.5rem auto;
-    width: 90%;
+    margin: 0.5rem ;
+}
+
+#musicList > li.template {
+    display: none;
+}
+
+#musicList > li .musicName {
+    justify-content: flex-start;
+    color: var(--light-text-color);
 }
 
 #musicList .button {
-    float: right;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
 }
 #musicList .button.up, #musicList .button.down {
     color: var(--light-text-color);
