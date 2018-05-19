@@ -87,15 +87,17 @@ const app = {
     renameListItem(ev) {
         const listItem = ev.target.parentElement;
         const listItemIndex = this.indexOfListItem(listItem);
+        const newName = listItem.querySelector('.musicName').textContent;
         if (listItemIndex != -1) {
-            app.songArray[listItemIndex].name = listItem.querySelector('.musicName').textContent;
+            app.songArray[listItemIndex].name = newName;
+            listItem.dataset.name = newName;
         }
     },
 
     // Delete the unique list item from the array if not favorited, 
     // and remove from the page
     deleteListItem(listItem, listItemIndex) {
-        if (!listItem.fav) {
+        if (!listItem.dataset.fav !== 'true') {
             app.songArray.splice(listItemIndex, 1);
             app.songList.removeChild(listItem);
         }
@@ -103,10 +105,19 @@ const app = {
 
     // Toggle favorite property for list item
     favListItem(listItem) {
-        listItem.fav = !listItem.fav;
+        //Toggle fav attribute
+        listItem.dataset.fav = !(listItem.dataset.fav === 'true');
+        const deleteButton = listItem.querySelector('.button.delete');
         listItem.querySelector('.button.delete').disabled = (listItem.fav) ? true : false;
-        listItem.style.backgroundColor = (listItem.fav) ? 'var(--highlight-color)' : 'transparent';
-        listItem.style.color = (listItem.fav) ? 'var(--dark-text-color)' : 'var(--light-text-color)';
+        if (listItem.dataset.fav === 'true') {
+            deleteButton.disabled = true;
+            listItem.style.backgroundColor = 'var(--highlight-color)';
+            listItem.style.color = 'var(--dark-text-color)';
+        }
+        else {
+            deleteButton.disabled = false;
+            listItem.style = '';
+        }
     },
 
     // Swap list item with the one above it (bottom is first element)
