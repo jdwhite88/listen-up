@@ -49,10 +49,9 @@ header {
 }
 
 #musicList {
-    width: 95%;
+    width: 90%;
     margin-bottom: 0;
     margin: auto;
-    justify-content: center;
     overflow: auto;
     display: flex;
     flex-wrap: wrap;

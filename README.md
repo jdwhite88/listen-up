@@ -9,17 +9,15 @@ This project is the 3rd-4th+ homework for XTern Bootcamp 2018, Session 1.
  
  ## TODO
  #### WIP
- * _Move list item buttons_
  * _Change colors to look more appealing_
  * _Disable first Up and last Down button when list updates_
  * _Add pictures and more design to site_
  #### Upcoming
+ * _Limit list display length effectively_
  * _Drag and drop list items to change position_
- * _Query YouTube for most relevant video result_
- * _Seperate artist, song, etc. for input into list_
+ * _Query Spotify for most relevant video result_
  * _Create tabs for seperate genres_
  * _Persist webpage across multiple sessions_
- * _Login capability (Google?)_
 
 ## Author
 * **Jacob White** - [GitHub](https://github.com/jdwhite88)
