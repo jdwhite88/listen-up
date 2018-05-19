@@ -20,6 +20,7 @@ const app = {
 
         const listItem = this.buildListItem(ev);
         this.songList.insertBefore(listItem, this.songList.firstChild);
+        this.updateListItems();
         form.reset();
     },
 
@@ -80,6 +81,7 @@ const app = {
         const listItemIndex = this.indexOfListItem(listItem);
         if (listItemIndex != -1) {
             itemFunction(listItem, listItemIndex);
+            this.updateListItems();
         }
     },
 
@@ -145,6 +147,29 @@ const app = {
             const temp = app.songArray[listItemIndex + 1];
             app.songArray[listItemIndex + 1] = app.songArray[listItemIndex];
             app.songArray[listItemIndex] = temp;
+        }
+    },
+
+    // Search through first and last two items in the list, changing what up/down buttons are enabled.
+    updateListItems() {
+        //Before the template
+        const lastElementIndex = (this.songList.children.length - 1) - 1;
+
+        if (lastElementIndex === 0) {
+            const element = this.songList.firstChild;
+            element.querySelector('.button.up').disabled = true;
+            element.querySelector('.button.down').disabled = true;
+        }
+        else if (lastElementIndex >= 1) {
+            const firstElement = this.songList.children[0];
+            const secondElement = this.songList.children[1];
+            const secondLastElement = this.songList.children[lastElementIndex - 1];
+            const lastElement = this.songList.children[lastElementIndex];
+            
+            secondElement.querySelector('.button.up').disabled = false; 
+            secondLastElement.querySelector('.button.down').disabled = false;
+            firstElement.querySelector('.button.up').disabled = true;
+            lastElement.querySelector('.button.down').disabled = true;
         }
     },
 }

@@ -10,7 +10,6 @@ This project is the 3rd-4th+ homework for XTern Bootcamp 2018, Session 1.
  ## TODO
  #### WIP
  * _Change colors to look more appealing_
- * _Disable first Up and last Down button when list updates_
  * _Add pictures and more design to site_
  #### Upcoming
  * _Limit list display length effectively_
