@@ -1,23 +1,31 @@
+:root {
+    --background-color: rgb(23, 52, 80);
+    --light-text-color: rgb(21, 190, 246);
+    --dark-text-color: rgb(16, 77, 108);
+    --shadow-color: rgb(6, 104, 163);
+    --highlight-color: palegreen;
+
+}
+
 main {
     width: 80%;
     margin: 1rem auto;
     
 }
 body {
-    background-color: rgb(23, 52, 80);
+    background-color: var(--background-color);
 }
 
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
-    text-shadow: 0rem 0rem 0.13rem rgb(21, 190, 246);
+    text-shadow: 0rem 0rem 0.13rem var(--light-text-color);
     margin: auto;
-    color: rgb(21, 190, 246);
+    color: var(--light-text-color);
 }
 
 header {
     text-align: center;
     margin: auto;
-    color: rgb(21, 190, 246);
 }
 
 .musicName {
@@ -33,22 +41,22 @@ header {
 }
 
 #musicForm {
-    box-shadow: 0rem 0rem 10rem 0rem rgb(16, 77, 108);
+    box-shadow: 0rem 0rem 10rem 0rem var(--shadow-color);
 }
 
 #musicForm .input-group-field {
-    color: rgb(16, 77, 108);
+    color: var(--dark-text-color);
 }
 
 #musicForm .button.success {
-    color: rgb(16, 77, 108);
+    color: var(--dark-text-color);
 }
 
 #musicList > li {
-    color: rgb(21, 190, 246);
+    color: var(--light-text-color);
     padding: 0.03rem;
-    box-shadow: 0rem 0rem 0.4rem 0.1rem rgb(6, 104, 163),
-                0rem 0rem 1.3rem 0.1rem rgb(6, 104, 163) inset;
+    box-shadow: 0rem 0rem 0.4rem 0.1rem var(--shadow-color),
+                0rem 0rem 1.3rem 0.1rem var(--shadow-color) inset;
     margin: 0.5rem auto;
     width: 90%;
 }
@@ -57,11 +65,11 @@ header {
     float: right;
 }
 #musicList .button.up, #musicList .button.down {
-    color: rgb(21, 190, 246);
+    color: var(--light-text-color);
 }
 #musicList .button.favorite {
     background-color: mediumseagreen;
-    color: rgb(16, 77, 108);
+    color: var(--dark-text-color);
 }
 
 #musicList .button.delete {
