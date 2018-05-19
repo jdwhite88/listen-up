@@ -105,7 +105,8 @@ const app = {
     favListItem(listItem) {
         listItem.fav = !listItem.fav;
         listItem.querySelector('.button.delete').disabled = (listItem.fav) ? true : false;
-        listItem.style.backgroundColor = (listItem.fav) ? 'lemonchiffon' : 'transparent';
+        listItem.style.backgroundColor = (listItem.fav) ? 'paleGreen' : 'transparent';
+        listItem.style.color = (listItem.fav) ? 'rgb(16, 77, 108)' : 'rgb(21, 190, 246)';
     },
 
     // Swap list item with the one above it (bottom is first element)

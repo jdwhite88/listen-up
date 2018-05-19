@@ -1,18 +1,27 @@
 main {
     width: 80%;
     margin: 1rem auto;
+    
+}
+body {
+    background-color: rgb(23, 52, 80);
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+    text-shadow: 0rem 0rem 0.13rem rgb(21, 190, 246);
     margin: auto;
+    color: rgb(21, 190, 246);
 }
 
 header {
     text-align: center;
+    margin: auto;
+    color: rgb(21, 190, 246);
 }
 
 .musicName {
-    margin: 0 0.75rem;
+    margin: 0.5rem 0.75rem;
 }
 
 .template {
@@ -23,13 +32,38 @@ header {
     margin-bottom: 0;
 }
 
+#musicForm {
+    box-shadow: 0rem 0rem 10rem 0rem rgb(16, 77, 108);
+}
+
+#musicForm .input-group-field {
+    color: rgb(16, 77, 108);
+}
+
+#musicForm .button.success {
+    color: rgb(16, 77, 108);
+}
+
 #musicList > li {
-    border: 1px solid #cacaca;
-    box-shadow: 0.1rem 0.1rem 0.5rem 0 silver;
+    color: rgb(21, 190, 246);
+    padding: 0.03rem;
+    box-shadow: 0rem 0rem 0.4rem 0.1rem rgb(6, 104, 163),
+                0rem 0rem 1.3rem 0.1rem rgb(6, 104, 163) inset;
     margin: 0.5rem auto;
     width: 90%;
 }
 
-#musicList button {
+#musicList .button {
     float: right;
+}
+#musicList .button.up, #musicList .button.down {
+    color: rgb(21, 190, 246);
+}
+#musicList .button.favorite {
+    background-color: mediumseagreen;
+    color: rgb(16, 77, 108);
+}
+
+#musicList .button.delete {
+    color: #cacaca;
 }
