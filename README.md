@@ -1,28 +1,28 @@
 # listen-up
 
-A webpage that displays a list of songs. The songs in the list can be favorited or deleted.
+A webpage that displays a list of songs. The songs in the list can be favorited, reordered, edited, or deleted.
 
-This project is the 3rd-4th+ homework for XTern Bootcamp 2018, Session 1.
+This project is the 3rd-4th homework for XTern Bootcamp 2018, Session 1.
 
 ## Setup
  1. Open the [webpage](https://jdwhite88.github.io/listen-up/) in your favorite internet browser that supports ES6 (not IE or Opera).
  
  ## TODO
  #### WIP
- * _Change colors to look more appealing_
- * _Add pictures and more design to site_
- #### Upcoming
- * _Limit list display length effectively_
+ * _Optimize list modification functions_
+ #### Ideas
+ * _Query Spotify for most relevant track and give preview for each list item_
+ * _Input other relevant information to song (artist, etc.)_
+ * _Allow category creation (by genres, artists, etc.)_
+ * _Give better colors/design to webpage_
  * _Drag and drop list items to change position_
- * _Query Spotify for most relevant video result_
- * _Create tabs for seperate genres_
  * _Persist webpage across multiple sessions_
 
 ## Author
 * **Jacob White** - [GitHub](https://github.com/jdwhite88)
 
 ## Dependencies
-* [Zurb Foundation](https://foundation.zurb.com/) - For designing the webpage's [CSS framework](https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css), accessed via CDN.
+* [Zurb Foundation](https://foundation.zurb.com/) - For the [CSS framework](https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/css/foundation.css), used by the webpage, accessed via CDN.
 
 ## Acknowledgments
 
