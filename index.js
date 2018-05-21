@@ -1,6 +1,6 @@
-const app = {
+class App {
 
-    init(selectors) {
+    constructor(selectors) {
         this.max = 0;
         this.songArray = [];
         this.songList = document.querySelector(selectors.listSelector);
@@ -12,7 +12,7 @@ const app = {
                 ev.preventDefault();
                 this.addMusicToList(ev);
             });
-    },
+    }
 
     addMusicToList(ev) {
         ev.preventDefault();
@@ -22,7 +22,7 @@ const app = {
         this.songList.insertBefore(listItem, this.songList.firstChild);
         this.updateListItems();
         form.reset();
-    },
+    }
 
     buildListItem(ev) {
         const form = ev.target;
@@ -63,7 +63,7 @@ const app = {
 
 
         return listItem;
-    },
+    }
 
     //Find index of listItem in songArray by comparing unique id
     indexOfListItem(listItem) {
@@ -73,7 +73,7 @@ const app = {
             }
         }
         return -1;
-    },
+    }
 
     // Perform function on list item (ev: button < span < li)
     modifyListItem(itemFunction, ev) {
@@ -83,7 +83,7 @@ const app = {
             itemFunction(listItem, listItemIndex);
             this.updateListItems();
         }
-    },
+    }
 
     // Once user edits, rename the listed name of the song (ev: span < li)
     renameListItem(ev) {
@@ -94,7 +94,7 @@ const app = {
             app.songArray[listItemIndex].name = newName;
             listItem.dataset.name = newName;
         }
-    },
+    }
 
     // Delete the unique list item from the array if not favorited, 
     // and remove from the page
@@ -103,7 +103,7 @@ const app = {
             app.songArray.splice(listItemIndex, 1);
             app.songList.removeChild(listItem);
         }
-    },
+    }
 
     // Toggle favorite property for list item
     favListItem(listItem) {
@@ -120,7 +120,7 @@ const app = {
             deleteButton.disabled = false;
             listItem.style = '';
         }
-    },
+    }
 
     // Swap list item with the one above it (bottom is first element)
     moveListItemDown(listItem, listItemIndex) {
@@ -134,7 +134,7 @@ const app = {
             app.songArray[listItemIndex - 1] = app.songArray[listItemIndex];
             app.songArray[listItemIndex] = temp;
         }
-    },
+    }
 
     // Swap list item with the one below it (top is last element)
     moveListItemUp(listItem, listItemIndex) {
@@ -148,7 +148,7 @@ const app = {
             app.songArray[listItemIndex + 1] = app.songArray[listItemIndex];
             app.songArray[listItemIndex] = temp;
         }
-    },
+    }
 
     // Search through first and last two items in the list, changing what up/down buttons are enabled.
     updateListItems() {
@@ -171,10 +171,10 @@ const app = {
             firstElement.querySelector('.button.up').disabled = true;
             lastElement.querySelector('.button.down').disabled = true;
         }
-    },
+    }
 }
 
-app.init({
+const app = new App({
     formSelector: '#musicForm',
     listSelector: '#musicList',
     templateSelector: '.music.template',
