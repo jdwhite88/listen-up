@@ -2,10 +2,10 @@
 
 A webpage that displays a list of songs. The songs in the list can be favorited, reordered, edited, or deleted.
 
-This project is the 3rd-4th homework for XTern Bootcamp 2018, Session 1.
+This is the 2nd project for XTern Bootcamp 2018, Session 1.
 
 ## Setup
- 1. Open the [webpage](https://jdwhite88.github.io/listen-up/) in your favorite internet browser that supports ES6 (not IE or Opera).
+ 1. Open the https://jdwhite88.github.io/listen-up/ in your favorite internet browser that supports ES6 (not IE or Opera).
  
  ## TODO
  #### WIP
